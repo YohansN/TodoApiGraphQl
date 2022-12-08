@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ToDoApiGraphQl.Data;
+using ToDoApiGraphQl.Repositories;
+using ToDoApiGraphQl.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services
 //.AddQueryType<Query>();
 
 builder.Services.AddDbContext<Context>(option => option.UseInMemoryDatabase("TodoDatabase"));
+
+builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
 var app = builder.Build();
 
