@@ -9,11 +9,13 @@
   <ItemGroup>
     <PackageReference Include="HotChocolate.AspNetCore" Version="12.15.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 
 </Project>
