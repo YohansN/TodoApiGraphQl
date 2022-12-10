@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Rnsal3QHQ+o/6sXHnCa1oCY0BvIG+COjDbCslOPA3PRvkJS6juLWv/OLnCy3NoaF2komSj4jxhLKRT770LXuVQ==",
+  "dgSpecHash": "rfcPWOG/tm5Wtk195ywcYKuMfSWALHAvdRw06MMi/OMwXjUegKDd7N+pA4A6KLvJ69CpqX7bGsdp+8RR4laxdw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuário\\source\\repos\\ToDoApiGraphQl\\ToDoApiGraphQl\\ToDoApiGraphQl.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Usuário\\.nuget\\packages\\fluentvalidation\\11.4.0\\fluentvalidation.11.4.0.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\greendonut\\12.15.2\\greendonut.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate\\12.15.2\\hotchocolate.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.abstractions\\12.15.2\\hotchocolate.abstractions.12.15.2.nupkg.sha512",
