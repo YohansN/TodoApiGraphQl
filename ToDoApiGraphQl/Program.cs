@@ -1,8 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ToDoApiGraphQl.BusinessRules.Validators;
 using ToDoApiGraphQl.Data;
-using ToDoApiGraphQl.Repositories;
-using ToDoApiGraphQl.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +12,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddGraphQLServer();
-//.AddQueryType<Query>();
+//    .AddQueryType<Query>();
 
-builder.Services.AddDbContext<Context>(option => option.UseInMemoryDatabase("TodoDatabase"));
 
-builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-builder.Services.AddScoped<ITaskValidator, TaskValidator>();
 
 var app = builder.Build();
 
