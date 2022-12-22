@@ -1,6 +1,6 @@
 ﻿namespace ToDoApiGraphQl.Models
 {
-    public class Todo
+    public class TaskToDo
     {
         public int Id { get; set; }
         public string Title { get; set; } = null!;

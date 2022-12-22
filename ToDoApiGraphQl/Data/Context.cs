@@ -6,6 +6,6 @@ namespace ToDoApiGraphQl.Data
     public class Context : DbContext
     {
         public Context(DbContextOptions options) : base(options){}
-        public DbSet<Todo> Tasks { get; set; }
+        public DbSet<TaskToDo> taskToDo { get; set; }
     }
 }

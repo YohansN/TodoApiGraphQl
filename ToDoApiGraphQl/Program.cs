@@ -1,18 +1,25 @@
 using Microsoft.EntityFrameworkCore;
 using ToDoApiGraphQl.Data;
+using ToDoApiGraphQl.GraphQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
-    .AddGraphQLServer();
-//    .AddQueryType<Query>();
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
+
+builder.Services.AddDbContext<Context>(options =>
+{
+    var connetionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString));
+});
 
 
 
