@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zxuf8yzXz1JI2iaMRc3anQ558Hibtyn5KfusUjla+MXHDB3kiKo33isRC6Yqj3po5Qedj9KyVoqzepfJ54Sf0w==",
+  "dgSpecHash": "YC651EjgOVy2mrhTNntq1SjnMcx68mP9WJqv2J83q9e+sKsNg5O/vvkwjVlUOyuJG3cUDpDCt9oC6ThGBBv8OQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Usuário\\source\\repos\\ToDoApiGraphQl\\ToDoApiGraphQl\\ToDoApiGraphQl.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate\\12.15.2\\hotchocolate.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.abstractions\\12.15.2\\hotchocolate.abstractions.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.aspnetcore\\12.15.2\\hotchocolate.aspnetcore.12.15.2.nupkg.sha512",
+    "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.data\\12.15.2\\hotchocolate.data.12.15.2.nupkg.sha512",
+    "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.data.entityframework\\12.15.2\\hotchocolate.data.entityframework.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.execution\\12.15.2\\hotchocolate.execution.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.fetching\\12.15.2\\hotchocolate.fetching.12.15.2.nupkg.sha512",
     "C:\\Users\\Usuário\\.nuget\\packages\\hotchocolate.language\\12.15.2\\hotchocolate.language.12.15.2.nupkg.sha512",

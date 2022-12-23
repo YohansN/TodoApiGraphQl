@@ -5,7 +5,8 @@ namespace ToDoApiGraphQl.GraphQL
 {
     public class Query
     {
-        public IQueryable<TaskToDo> GetTask([Service] Context context)
+        [UseDbContext(typeof(Context))]
+        public IQueryable<TaskToDo> GetTask([ScopedService] Context context)
         {
             return context.taskToDo;
         }

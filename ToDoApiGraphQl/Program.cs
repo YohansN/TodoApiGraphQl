@@ -15,7 +15,7 @@ builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>();
 
-builder.Services.AddDbContext<Context>(options =>
+builder.Services.AddPooledDbContextFactory<Context>(options =>
 {
     var connetionString = builder.Configuration.GetConnectionString("DefaultConnection");
     options.UseMySql(connetionString, ServerVersion.AutoDetect(connetionString));
