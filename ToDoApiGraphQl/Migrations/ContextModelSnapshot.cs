@@ -34,9 +34,45 @@ namespace ToDoApiGraphQl.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("taskToDo");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TaskToDo");
+                });
+
+            modelBuilder.Entity("ToDoApiGraphQl.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("ToDoApiGraphQl.Models.TaskToDo", b =>
+                {
+                    b.HasOne("ToDoApiGraphQl.Models.User", "User")
+                        .WithMany("TaskToDo")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ToDoApiGraphQl.Models.User", b =>
+                {
+                    b.Navigation("TaskToDo");
                 });
 #pragma warning restore 612, 618
         }

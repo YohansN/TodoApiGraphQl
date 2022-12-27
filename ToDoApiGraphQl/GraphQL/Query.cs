@@ -8,7 +8,7 @@ namespace ToDoApiGraphQl.GraphQL
         [UseDbContext(typeof(Context))]
         public IQueryable<TaskToDo> GetTask([ScopedService] Context context)
         {
-            return context.taskToDo;
+            return context.TaskToDo;
         }
     }
 }
