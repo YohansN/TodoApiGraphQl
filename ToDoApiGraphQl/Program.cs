@@ -13,7 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddGraphQLServer()
-    .AddQueryType<Query>();
+    .AddQueryType<Query>()
+    .AddProjections();
 
 builder.Services.AddPooledDbContextFactory<Context>(options =>
 {
