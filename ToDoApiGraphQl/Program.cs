@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ToDoApiGraphQl.Data;
 using ToDoApiGraphQl.GraphQL;
-using ToDoApiGraphQl.GraphQL.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services
     .AddGraphQLServer()
     .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
     .AddFiltering()
     .AddSorting()
     .AddProjections();
