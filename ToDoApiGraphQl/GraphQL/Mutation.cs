@@ -20,6 +20,18 @@ namespace ToDoApiGraphQl.GraphQL
         }
 
         [UseDbContext(typeof(Context))]
+        public async Task<bool> DeleteUserAsync(int id, [ScopedService] Context context)
+        {
+            var user = await context.User.FindAsync(id);
+            if (user == null)
+                return false;
+
+            context.User.Remove(user);
+            await context.SaveChangesAsync();
+            return true;
+        }
+
+        [UseDbContext(typeof(Context))]
         public async Task<AddTaskPayload> AddTaskAsync(AddTaskInput taskInput, [ScopedService] Context context)
         {
             var task = new TaskToDo
