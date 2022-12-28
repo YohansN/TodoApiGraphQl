@@ -1,4 +1,5 @@
-﻿using ToDoApiGraphQl.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using ToDoApiGraphQl.Data;
 using ToDoApiGraphQl.GraphQL.Tasks;
 using ToDoApiGraphQl.GraphQL.Users;
 using ToDoApiGraphQl.Models;
@@ -30,6 +31,19 @@ namespace ToDoApiGraphQl.GraphQL
             await context.SaveChangesAsync();
             return true;
         }
+
+        [UseDbContext(typeof(Context))]
+        public async Task<User> UpdateUserAsync(UpdateUserInput userInput, [ScopedService] Context context)
+        {
+            var user = new User
+            {
+                Name = userInput.Name
+            };
+
+            context.User.Update(user);
+            await context.SaveChangesAsync();
+            return user;
+        }//Bug: Creating a new user with the new info and a new ID. Needs fix.
 
         [UseDbContext(typeof(Context))]
         public async Task<AddTaskPayload> AddTaskAsync(AddTaskInput taskInput, [ScopedService] Context context)
