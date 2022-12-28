@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ToDoApiGraphQl.Models
 {
+    [GraphQLDescription("Represents tasks of an user.")]
     public class TaskToDo
     {
         [Key]

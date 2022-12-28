@@ -2,6 +2,7 @@
 
 namespace ToDoApiGraphQl.Models
 {
+    [GraphQLDescription("Represents an user of the sistem.")]
     public class User
     {
         [Key]
