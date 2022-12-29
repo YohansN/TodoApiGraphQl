@@ -9,18 +9,13 @@ namespace ToDoApiGraphQl.GraphQL
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<TaskToDo> GetTask([ScopedService] Context context)
-        {
-            return context.TaskToDo;
-        }
+        public IQueryable<TaskToDo> GetTask([ScopedService] Context context) => context.TaskToDo;
 
         [UseDbContext(typeof(Context))]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<User> GetUser([ScopedService] Context context)
-        {
-            return context.User;
-        }
+        public IQueryable<User> GetUser([ScopedService] Context context) => context.User;
+        
     }
 }

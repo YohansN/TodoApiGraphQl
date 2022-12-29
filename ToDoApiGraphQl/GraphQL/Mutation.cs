@@ -44,7 +44,7 @@ namespace ToDoApiGraphQl.GraphQL
             context.User.Update(user);
             await context.SaveChangesAsync();
             return user;
-        }//Bug: Creating a new user with the new info and a new ID. Needs fix.
+        }
 
         [UseDbContext(typeof(Context))]
         public async Task<AddTaskPayload> AddTaskAsync(AddTaskInput taskInput, [ScopedService] Context context)
