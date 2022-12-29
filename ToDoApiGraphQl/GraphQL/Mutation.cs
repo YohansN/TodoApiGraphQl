@@ -71,5 +71,17 @@ namespace ToDoApiGraphQl.GraphQL
             return true;
         }
 
+        [UseDbContext(typeof(Context))]
+        public async Task<bool> UpdateTaskStatusAsync(int id, [ScopedService] Context context, UpdateTaskStatusInput taskDto)
+        {
+            var task = context.TaskToDo.FindAsync(id);
+            if (task == null)
+                return false;
+
+            task.IsDone = taskDto.IsDone;
+            await context.TaskToDo.Update(task);
+            await context.TaskToDo.SaveChangesAsync();
+            return true;
+        }
     }
 }
