@@ -59,5 +59,17 @@ namespace ToDoApiGraphQl.GraphQL
             await context.SaveChangesAsync();
             return new AddTaskPayload(task);
         }
+
+        [UseDbContext(typeof(Context))]
+        public async Task<bool> DeleteTaskAsync(int id, [ScopedService] Context context)
+        {
+            var task = await context.TaskToDo.FindAsync(id);
+            if (task == null)
+                return false;
+            context.TaskToDo.Remove(task);
+            context.SaveChangesAsync();
+            return true;
+        }
+
     }
 }
