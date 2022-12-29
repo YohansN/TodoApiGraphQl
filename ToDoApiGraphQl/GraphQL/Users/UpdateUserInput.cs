@@ -1,4 +1,4 @@
 ﻿namespace ToDoApiGraphQl.GraphQL.Users
 {
-    public record UpdateUserInput(int Id, string Name);
+    public record UpdateUserInput(string Name);
 }

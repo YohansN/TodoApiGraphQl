@@ -33,12 +33,13 @@ namespace ToDoApiGraphQl.GraphQL
         }
 
         [UseDbContext(typeof(Context))]
-        public async Task<User> UpdateUserAsync(UpdateUserInput userInput, [ScopedService] Context context)
+        public async Task<User> UpdateUserAsync(int id, UpdateUserInput userDto, [ScopedService] Context context)
         {
-            var user = new User
-            {
-                Name = userInput.Name
-            };
+            var user = context.User.FindAsync(id);
+            if (user == null)
+                return null;
+
+            user.Name = userDto.Name;
 
             context.User.Update(user);
             await context.SaveChangesAsync();
@@ -67,7 +68,7 @@ namespace ToDoApiGraphQl.GraphQL
             if (task == null)
                 return false;
             context.TaskToDo.Remove(task);
-            context.SaveChangesAsync();
+            await context.SaveChangesAsync();
             return true;
         }
 
@@ -79,8 +80,8 @@ namespace ToDoApiGraphQl.GraphQL
                 return false;
 
             task.IsDone = taskDto.IsDone;
-            await context.TaskToDo.Update(task);
-            await context.TaskToDo.SaveChangesAsync();
+            context.TaskToDo.Update(task);
+            await context.SaveChangesAsync();
             return true;
         }
     }
