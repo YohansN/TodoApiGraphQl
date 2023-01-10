@@ -11,7 +11,7 @@ namespace ToDoApiGraphQl.GraphQL
         [UseDbContext(typeof(Context))]
         public async Task<AddUserPayload> AddUserAsync(AddUserInput userInput, [ScopedService] Context context)
         {
-            var user = new User
+            var user = new User()
             {
                 Name = userInput.Name
             };
@@ -35,7 +35,7 @@ namespace ToDoApiGraphQl.GraphQL
         [UseDbContext(typeof(Context))]
         public async Task<User> UpdateUserAsync(int id, UpdateUserInput userDto, [ScopedService] Context context)
         {
-            var user = context.User.FindAsync(id);
+            var user = context.User.FirstOrDefault(u => u.Id == id);
             if (user == null)
                 return null;
 
@@ -49,7 +49,7 @@ namespace ToDoApiGraphQl.GraphQL
         [UseDbContext(typeof(Context))]
         public async Task<AddTaskPayload> AddTaskAsync(AddTaskInput taskInput, [ScopedService] Context context)
         {
-            var task = new TaskToDo
+            var task = new TaskToDo()
             {
                 Title = taskInput.Title,
                 Description = taskInput.Description,
@@ -62,20 +62,23 @@ namespace ToDoApiGraphQl.GraphQL
         }
 
         [UseDbContext(typeof(Context))]
-        public async Task<bool> DeleteTaskAsync(int id, [ScopedService] Context context)
+        public async Task<bool> DeleteTaskAsync(int userId, int taskId, [ScopedService] Context context)
         {
-            var task = await context.TaskToDo.FindAsync(id);
-            if (task == null)
-                return false;
+            var user = await context.User.FindAsync(userId);
+            if (user == null) return false;
+
+            var task = await context.TaskToDo.FindAsync(taskId);
+            if(task == null) return false;
+
             context.TaskToDo.Remove(task);
             await context.SaveChangesAsync();
             return true;
         }
-
+        
         [UseDbContext(typeof(Context))]
         public async Task<bool> UpdateTaskStatusAsync(int id, [ScopedService] Context context, UpdateTaskStatusInput taskDto)
         {
-            var task = context.TaskToDo.FindAsync(id);
+            var task = context.TaskToDo.FirstOrDefault(u => u.Id == id);
             if (task == null)
                 return false;
 
